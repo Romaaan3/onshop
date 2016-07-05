@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @cp_category.name
+p
+  strong Description:
+  = @cp_category.description
+
+= link_to 'Edit', edit_cp_category_path(@cp_category)
+'|
+= link_to 'Back', cp_categories_path

@@ -14,7 +14,7 @@
 <div class="container">
     <div class="head">
       <div class="logo">
-        <a href="index.html"><%= image_tag "logo.png", class: "sticking-logo" %></a>
+        <a href=<%= "#{fe_root_path}" %>><%= image_tag "logo.png", class: "sticking-logo" %></a>
       </div>
     </div>
   </div>
@@ -22,9 +22,13 @@
     <div class="container">
     <div class="col-sm-5 col-md-offset-2  header-login">
           <ul >
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
+            <%- unless user_signed_in? %>
+            <li><%= link_to('Login', new_user_session_path)  %> </li>
+            <li><%= link_to('Register', new_user_registration_path)  %></li>
+            <%- else %>
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
             <li><a href="checkout.html">Checkout</a></li>
+            <% end %>
           </ul>
         </div>
 

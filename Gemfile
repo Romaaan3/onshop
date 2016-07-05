@@ -32,6 +32,8 @@ gem 'bootstrap-sass'
 gem 'will_paginate', '~> 3.1.0'
 gem "will_paginate-bootstrap"
 gem 'devise'
+gem 'devise-bootstrap-views'
+gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 gem 'puma'
 
 # Use ActiveModel has_secure_password

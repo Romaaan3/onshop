@@ -1,0 +1,25 @@
+h1 Listing fe_comments
+
+table
+  thead
+    tr
+      th Users
+      th Title
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @fe_comments.each do |fe_comment|
+      tr
+        td = fe_comment.users
+        td = fe_comment.title
+        td = fe_comment.description
+        td = link_to 'Show', fe_comment
+        td = link_to 'Edit', edit_fe_comment_path(fe_comment)
+        td = link_to 'Destroy', fe_comment, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Comment', new_fe_comment_path

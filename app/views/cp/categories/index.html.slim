@@ -1,0 +1,23 @@
+h1 Listing cp_categories
+
+table
+  thead
+    tr
+      th Name
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @cp_categories.each do |cp_category|
+      tr
+        td = cp_category.name
+        td = cp_category.description
+        td = link_to 'Show', cp_category
+        td = link_to 'Edit', edit_cp_category_path(cp_category)
+        td = link_to 'Destroy', cp_category, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Category', new_cp_category_path

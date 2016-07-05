@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Users:
+  = @fe_comment.users
+p
+  strong Title:
+  = @fe_comment.title
+p
+  strong Description:
+  = @fe_comment.description
+
+= link_to 'Edit', edit_fe_comment_path(@fe_comment)
+'|
+= link_to 'Back', fe_comments_path

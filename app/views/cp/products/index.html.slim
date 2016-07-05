@@ -1,0 +1,31 @@
+h1 Listing cp_products
+
+table
+  thead
+    tr
+      th Brands
+      th Categories
+      th Name
+      th Description
+      th Price
+      th Discount
+      th
+      th
+      th
+
+  tbody
+    - @cp_products.each do |cp_product|
+      tr
+        td = cp_product.brands
+        td = cp_product.categories
+        td = cp_product.name
+        td = cp_product.description
+        td = cp_product.price
+        td = cp_product.discount
+        td = link_to 'Show', cp_product
+        td = link_to 'Edit', edit_cp_product_path(cp_product)
+        td = link_to 'Destroy', cp_product, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Product', new_cp_product_path

@@ -1,0 +1,23 @@
+h1 Listing cp_brands
+
+table
+  thead
+    tr
+      th Name
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @cp_brands.each do |cp_brand|
+      tr
+        td = cp_brand.name
+        td = cp_brand.description
+        td = link_to 'Show', cp_brand
+        td = link_to 'Edit', edit_cp_brand_path(cp_brand)
+        td = link_to 'Destroy', cp_brand, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Brand', new_cp_brand_path

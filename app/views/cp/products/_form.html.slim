@@ -1,0 +1,13 @@
+= simple_form_for(@cp_product) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :brands
+    = f.association :categories
+    = f.input :name
+    = f.input :description
+    = f.input :price
+    = f.input :discount
+
+  .form-actions
+    = f.button :submit

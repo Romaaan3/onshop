@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Brands:
+  = @cp_product.brands
+p
+  strong Categories:
+  = @cp_product.categories
+p
+  strong Name:
+  = @cp_product.name
+p
+  strong Description:
+  = @cp_product.description
+p
+  strong Price:
+  = @cp_product.price
+p
+  strong Discount:
+  = @cp_product.discount
+
+= link_to 'Edit', edit_cp_product_path(@cp_product)
+'|
+= link_to 'Back', cp_products_path

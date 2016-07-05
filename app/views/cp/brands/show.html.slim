@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @cp_brand.name
+p
+  strong Description:
+  = @cp_brand.description
+
+= link_to 'Edit', edit_cp_brand_path(@cp_brand)
+'|
+= link_to 'Back', cp_brands_path
