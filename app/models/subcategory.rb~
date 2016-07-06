@@ -1,0 +1,3 @@
+class Cp::Subcategory < ActiveRecord::Base
+  belongs_to :categories
+end

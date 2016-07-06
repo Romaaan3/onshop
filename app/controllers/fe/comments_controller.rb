@@ -4,7 +4,7 @@ class Fe::CommentsController < ApplicationController
   # GET /fe/comments
   # GET /fe/comments.json
   def index
-    @fe_comments = Fe::Comment.all
+    @fe_comments = Comment.all
   end
 
   # GET /fe/comments/1
@@ -14,7 +14,7 @@ class Fe::CommentsController < ApplicationController
 
   # GET /fe/comments/new
   def new
-    @fe_comment = Fe::Comment.new
+    @fe_comment = Comment.new
   end
 
   # GET /fe/comments/1/edit
@@ -24,7 +24,7 @@ class Fe::CommentsController < ApplicationController
   # POST /fe/comments
   # POST /fe/comments.json
   def create
-    @fe_comment = Fe::Comment.new(fe_comment_params)
+    @fe_comment = Comment.new(fe_comment_params)
 
     respond_to do |format|
       if @fe_comment.save
@@ -64,11 +64,11 @@ class Fe::CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fe_comment
-      @fe_comment = Fe::Comment.find(params[:id])
+      @fe_comment = Comment.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fe_comment_params
-      params.require(:fe_comment).permit(:users_id, :title, :description)
+      params.require(:comment).permit(:users_id, :title, :description)
     end
 end

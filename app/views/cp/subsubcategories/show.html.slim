@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Subcategories:
+  = @cp_subsubcategory.subcategories
+p
+  strong Name:
+  = @cp_subsubcategory.name
+p
+  strong Description:
+  = @cp_subsubcategory.description
+
+= link_to 'Edit', edit_cp_subsubcategory_path(@cp_subsubcategory)
+'|
+= link_to 'Back', cp_subsubcategories_path

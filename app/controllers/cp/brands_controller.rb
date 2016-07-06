@@ -1,10 +1,11 @@
-class Cp::BrandsController < ApplicationController
+class Cp::BrandsController < Cp::AdminsController
   before_action :set_cp_brand, only: [:show, :edit, :update, :destroy]
 
   # GET /cp/brands
   # GET /cp/brands.json
   def index
-    @cp_brands = Cp::Brand.all
+    @cp_brands = Brand.all
+    @title = "Brands"
   end
 
   # GET /cp/brands/1
@@ -14,7 +15,7 @@ class Cp::BrandsController < ApplicationController
 
   # GET /cp/brands/new
   def new
-    @cp_brand = Cp::Brand.new
+    @cp_brand = Brand.new
   end
 
   # GET /cp/brands/1/edit
@@ -24,7 +25,7 @@ class Cp::BrandsController < ApplicationController
   # POST /cp/brands
   # POST /cp/brands.json
   def create
-    @cp_brand = Cp::Brand.new(cp_brand_params)
+    @cp_brand = Brand.new(cp_brand_params)
 
     respond_to do |format|
       if @cp_brand.save
@@ -64,11 +65,11 @@ class Cp::BrandsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cp_brand
-      @cp_brand = Cp::Brand.find(params[:id])
+      @cp_brand = Brand.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cp_brand_params
-      params.require(:cp_brand).permit(:name, :description)
+      params.require(:brand).permit(:name, :description)
     end
 end

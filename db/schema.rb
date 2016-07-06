@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705223332) do
+ActiveRecord::Schema.define(version: 20160706084825) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20160705223332) do
     t.integer  "users_id"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "rate",        default: 0
   end
 
   add_index "comments", ["users_id"], name: "index_comments_on_users_id"
@@ -51,19 +52,40 @@ ActiveRecord::Schema.define(version: 20160705223332) do
   add_index "products", ["brands_id"], name: "index_products_on_brands_id"
   add_index "products", ["categories_id"], name: "index_products_on_categories_id"
 
+  create_table "subcategories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "categories_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "subcategories", ["categories_id"], name: "index_subcategories_on_categories_id"
+
+  create_table "subsubcategories", force: :cascade do |t|
+    t.integer  "subcategories_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "subsubcategories", ["subcategories_id"], name: "index_subsubcategories_on_subcategories_id"
+
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "isAdmin",                default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

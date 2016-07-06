@@ -35,7 +35,7 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 gem 'puma'
-
+gem "font-awesome-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

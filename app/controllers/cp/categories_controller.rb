@@ -1,10 +1,11 @@
-class Cp::CategoriesController < ApplicationController
+class Cp::CategoriesController < Cp::AdminsController
   before_action :set_cp_category, only: [:show, :edit, :update, :destroy]
 
   # GET /cp/categories
   # GET /cp/categories.json
   def index
-    @cp_categories = Cp::Category.all
+    @cp_categories = Category.all
+    @title = "Categories"
   end
 
   # GET /cp/categories/1
@@ -14,7 +15,7 @@ class Cp::CategoriesController < ApplicationController
 
   # GET /cp/categories/new
   def new
-    @cp_category = Cp::Category.new
+    @cp_category = Category.new
   end
 
   # GET /cp/categories/1/edit
@@ -24,7 +25,7 @@ class Cp::CategoriesController < ApplicationController
   # POST /cp/categories
   # POST /cp/categories.json
   def create
-    @cp_category = Cp::Category.new(cp_category_params)
+    @cp_category = Category.new(cp_category_params)
 
     respond_to do |format|
       if @cp_category.save
@@ -64,11 +65,11 @@ class Cp::CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cp_category
-      @cp_category = Cp::Category.find(params[:id])
+      @cp_category = Category.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cp_category_params
-      params.require(:cp_category).permit(:name, :description)
+      params.require(:category).permit(:name, :description)
     end
 end
